@@ -38,7 +38,7 @@ B / N / Shift+N - Different ways to add a 5% volume green line on current positi
 A - Add a green line where you can immediately type the SV
 
 There's more hotkeys available, including experimental ones. If you want, you can try to decipher the script to find out what they are. 
-(A fun experimentatal one is Ctrl+Alt+k, which will attempt to play the current position with half-time by creating a new difficulty. Doesn't always select the correct diff tho.)
+(A fun experimental one is Ctrl+Alt+k, which will attempt to play the current position with half-time by creating a new difficulty. Doesn't always select the correct diff tho.)
 
 # DEBUGGING:
 If the script doesn't work, try to increase the number after "Sleep" commands. This makes the script wait longer between each action. The number is in milliseconds.
