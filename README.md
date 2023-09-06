@@ -15,6 +15,8 @@ You can look up how to make AutoHotKey scripts run on startup, so you don't have
 Press CTRL+ALT+. or CTRL+ALT+MOUSE5 to enable/disable the script - you should hear a sound when the script turns on and off.
 The script normally disables automatically when you leave the editor in any way (i.e. pressing Esc, Win, Alt+Tab, F5, F8, F9, etc.)
 
+MOUSE4/MOUSE5 - Rotate 90° from selection center (the default osu shortcuts rotate from Playfield center)
+
 Z/X - Rotate 15°
 
 D/F - Rotate 5°
