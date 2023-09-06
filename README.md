@@ -11,9 +11,13 @@ You can look up how to make AutoHotKey scripts run on startup, so you don't have
 (Hint: Win+R -> shell:startup -> Add a shortcut to the script in here)
 
 If you want to use any shortcuts that have to do with green lines, you need to do the following:
+
 Go to osu! options
+
 Under Editor set "Add inheriting Section" to A
+
 Set "Remove Section" to M
+
 If you don't like A and M to do this, you'll have to find two other keys that aren't conflicting with anything else and edit this script accordingly.
 
 # Hotkey guide:
