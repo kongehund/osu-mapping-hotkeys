@@ -27,7 +27,7 @@ B and N - Add 5% volume green line on current position without silencing the fol
 
 A - Add a green line where you can immediately type the SV
 
-There's more hotkeys available, try to decipher the script to find out what they are.
+There's more hotkeys available, try to decipher the script if you want to find out what they are.
 
 # DEBUGGING:
 If the script doesn't work, try to increase the number after "Sleep" commands. This makes the script wait longer between each action. The number is in milliseconds.
