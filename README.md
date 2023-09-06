@@ -43,4 +43,4 @@ There's more hotkeys available, including experimental ones. If you want, you ca
 # DEBUGGING:
 If the script doesn't work, try to increase the number after "Sleep" commands. This makes the script wait longer between each action. The number is in milliseconds.
 
-(There may be a lot of numbers to change. If I wasn't lazy, I'd turn it into variables edit at the top of the script, but yeah...)
+(There may be a lot of numbers to change. If I wasn't lazy, I'd turn it into variables you could edit at the top of the script, but meh)
