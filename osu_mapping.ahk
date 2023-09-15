@@ -1,15 +1,53 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; kongehund's osu mapping hotkeys
+; See https://github.com/kongehund/osu-mapping-hotkeys for info and newest version.
+
+
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-; FOR GREEN LINES TO WORK:
-; Go to osu! options
+
+; ---------------------------------------------------
+; SETUP
+; ---------------------------------------------------
+
+; FOR GREEN LINE RELATED HOTKEYS TO WORK:
+; Go to osu! options, then keyboard bindings
 ; Under Editor set "Add inheriting Section" to A (or change AddLine())
 ; Set "Remove Section" to M
 ; If you don't like A and M to do this, you'll have to find 
-;two other keys that aren't conflicting with anything else and 
-;edit this script accordingly
+; two other keys that aren't conflicting with anything else and 
+; edit this script accordingly
+
+
+
+; Below here are some variables that should be changed to fit your system.
+
+
+
+
+; If you type 0,4 in F6 menu to get 0.4 SV slider, this should be "comma"
+; If you type 0.4 in F6 menu to get 0.4 SV slider, this should be "dot" (If you're American, this is probably the correct one)
+
+decimalMode := "comma"
+
+
+
+
+; If some of the hotkeys aren't working properly, try increasing these delays.
+; The one that is most likely to be too short is delayLong.
+
+delay1 := 1		; Default 1
+delay2 := 10		; Default 10
+delayMedium := 100	; Default 100
+delayLong := 200	; Default 200
+
+
+
+; ---------------------------------------------------
+; SCRIPT TOGGLING AND ICON
+; ---------------------------------------------------
 
 I_Icon = hitcircle.ico
 IfExist, %I_Icon%
@@ -149,39 +187,41 @@ return
 ; Define the rotation function
 Rotate(angle)				
 {
-global scriptOn			
+global scriptOn
+global delay2
+global delay3		
 if (scriptOn = "True")
 {			
 ; Enter rotate menu
 Send {Ctrl down}
-Sleep 10
+Sleep delay2
 Send {Shift down}
-Sleep 10
+Sleep delay2
 Send {r down}
-Sleep 10
+Sleep delay2
 Send {r up}
 Send {Shift up}
 Send {Ctrl up}
-Sleep 20
+Sleep delay2
 ; Rotate around selection center
 Send, `t
-Sleep 10
+Sleep delay2
 Send, `t
-Sleep 10
+Sleep delay2
 Send, `t
-Sleep 10
+Sleep delay2
 Send, `t
-Sleep 10
+Sleep delay2
 Send, {Down}
-Sleep 10
+Sleep delay2
 ; Go to angle field
 Send, `t
-Sleep 10
+Sleep delay2
 Send, `t
-Sleep 10
+Sleep delay2
 ; Enter angle
 Send %angle%
-Sleep 10
+Sleep delay2
 Send {Enter}
 }
 return
@@ -294,37 +334,42 @@ return
 
 
 ; ---------------------------------------------------
-; GREEN LINES
+; GREEN LINE FUNCTIONS
 ; ---------------------------------------------------
 
 EnterF6()
 {
+global delayLong
 Send {F6 down}
 Sleep 1
 Send {F6 up}
-Sleep 200
+Sleep delayLong
 return
 }
 
 
 ClickTiming()
 {
+global delay1
+global delay2
 MouseMove, 40, 40
-Sleep 1
+Sleep delay1
 Send {Click}
-Sleep 10
+Sleep delay2
 return
 }
 
 
 GotoCustomSVField()
 {
+global delay1
+global delay2
 MouseMove, 40, 265
-Sleep 1
+Sleep delay1
 Send {Click}
-Sleep 1
+Sleep delay1
 Send, {Right}
-Sleep 1
+Sleep delay1
 return
 }
 
@@ -349,10 +394,11 @@ Send, {Backspace}
 
 AddLine()
 {
+global delayLong
 Send, {a down}
 Sleep 1
 Send, {a up}
-Sleep 200
+Sleep delayLong
 return
 }
 
@@ -391,34 +437,56 @@ return
 DeleteLine()
 {
 global scriptOn
+global delay1
+global delay2
 if (scriptOn = "True")
 {
 Send, {m down}
-Sleep 1
+Sleep delay1
 Send, {m up}
-Sleep 50
+Sleep delay2
 }
 return
 }
-
-
-~NumpadSub::DeleteLine()
 
 
 Greenline(SV)
 ; Adds a green line with a given SV
 {
 global scriptOn
+global decimalMode
+global delay1
+global delay2
 if (scriptOn = "True")
 {
 AddCustomSV()
+Sleep delay2
+
+if (decimalMode = "dot"){
+StringReplace, SV_new, SV, `, , .
+Send, %SV_new%
+}
+
+else if (decimalMode = "comma"){
 Send, %SV%
-Sleep 1
+}
+
+else
+{
+MsgBox, Error: decimalMode not identified
+}
+
+Sleep delay1
 Send, {NumpadEnter}
 }
 return
 }
 
+; ---------------------------------------------------
+; GREEN LINE BINDS
+; ---------------------------------------------------
+
+~NumpadSub::DeleteLine()
 
 ; Set binds for green lines.
 ; Holding down PgDn will add a new line
@@ -450,15 +518,15 @@ return
 if (scriptOn = "True")
 {
 Send {Ctrl down}
-Sleep 1
+Sleep delay1
 Send {Shift down}
-Sleep 1
+Sleep delay1
 Send {s down}
-Sleep 1
+Sleep delay1
 Send {s up}
 Send {Shift up}
 Send {Ctrl up}
-Sleep 10
+Sleep delay2
 Send {Enter}
 }
 return
@@ -472,13 +540,13 @@ if (scriptOn = "True")
 {
 EnterF6()
 MouseMove, 40, 265
-Sleep 1
+Sleep delay1
 Send {Click}
-Sleep 1
+Sleep delay1
 Send, {Right}
-Sleep 1
+Sleep delay1
 Send, {Up}
-Sleep 1
+Sleep delay1
 Send, {NumpadEnter}
 }
 return
@@ -491,17 +559,17 @@ if (scriptOn = "True")
 {
 EnterF6()
 MouseMove, 40, 265
-Sleep 1
+Sleep delay1
 Send {Click}
-Sleep 1
+Sleep delay1
 Send, {Right}
-Sleep 1
+Sleep delay1
 Send, {Up}
-Sleep 1
+Sleep delay1
 Send, {Up}
-Sleep 1
+Sleep delay1
 Send, {Up}
-Sleep 1
+Sleep delay1
 Send, {NumpadEnter}
 }
 return
@@ -514,13 +582,13 @@ if (scriptOn = "True")
 {
 EnterF6()
 MouseMove, 40, 265
-Sleep 1
+Sleep delay1
 Send {Click}
-Sleep 1
+Sleep delay1
 Send, {Right}
-Sleep 1
+Sleep delay1
 Send, {Down}
-Sleep 1
+Sleep delay1
 Send, {NumpadEnter}
 }
 return
@@ -533,64 +601,69 @@ if (scriptOn = "True")
 {
 EnterF6()
 MouseMove, 40, 265
-Sleep 1
+Sleep delay1
 Send {Click}
-Sleep 1
+Sleep delay1
 Send, {Right}
-Sleep 1
+Sleep delay1
 Send, {Down}
-Sleep 1
+Sleep delay1
 Send, {Down}
-Sleep 1
+Sleep delay1
 Send, {Down}
-Sleep 1
+Sleep delay1
 Send, {NumpadEnter}
 }
 return
 
+
+; ---------------------------------------------------
+; SLIDER END MUTES
+; ---------------------------------------------------
 
 ; Mute slider end via half-grid
 ~b::
 if (scriptOn = "True")
 {
 Send {b up}
-Sleep 1
+Sleep delay1
 ; Half beat snap divisor
 Send {Ctrl down}
-Sleep 1
+Sleep delay1
 Send {WheelUp}
-Sleep 1
+Sleep delay1
 Send {Ctrl up}
-Sleep 1
+Sleep delay1
 ; Next gridline
 Send {WheelDown}
-Sleep 1
-; Normal beat snap divisor
-Send {Ctrl down}
-Sleep 1
-Send {WheelDown}
-Sleep 1
-Send {Ctrl up}
-Sleep 1
+Sleep delay1
 ; Green line
 Send, {a down}
-Sleep 1
+Sleep delay1
 Send, {a up}
-Sleep 1
+Sleep delay2
 Send, {NumpadEnter}
-Sleep 1
+Sleep delay1
 ; Go back to previous gridline
 Send {WheelUp}
-Sleep 200
+Sleep delayLong
 Send, {a down}
-Sleep 200
+Sleep delay1
 Send, {a up}
-Sleep 10
+Sleep delayLong
 MouseMove, 190, 230
-Sleep 100
+Sleep delay1
 sendinput,{click}{click}
 Send {5}
 Send, {NumpadEnter}
+Sleep delayLong
+; Normal beat snap divisor
+Send {Ctrl down}
+Sleep delay1
+Send {WheelDown}
+Sleep delay1
+Send {Ctrl up}
+Sleep delay1
 }
 return
 
@@ -601,18 +674,18 @@ if (scriptOn = "True")
 Send {Shift up}
 Send {b up}
 Send {WheelDown} ; Next gridline
-Sleep 1
+Sleep delay1
 NewLine() ; Normal volume here
-Sleep 10
+Sleep delay2
 ; Go back to previous gridline
 Send {WheelUp}
-Sleep 200
+Sleep delayLong
 Send, {a down}
-Sleep 200
+Sleep delayLong
 Send, {a up}
-Sleep 10
+Sleep delay2
 MouseMove, 190, 230
-Sleep 100
+Sleep delay1
 sendinput,{click}{click}
 Send {5}
 Send, {NumpadEnter}
@@ -625,13 +698,13 @@ if (scriptOn = "True")
 {
 Send {Shift up}
 Send {b up}
-Sleep 1
+Sleep delay1
 Send, {a down}
-Sleep 200
+Sleep delayLong
 Send, {a up}
-Sleep 10
+Sleep delay2
 MouseMove, 190, 230
-Sleep 100
+Sleep delay1
 sendinput,{click}{click}
 Send {5}
 Send, {NumpadEnter}
@@ -639,6 +712,9 @@ Send, {NumpadEnter}
 return
 
 
+; ---------------------------------------------------
+; CUSTOM-LENGTH SLIDERS
+; ---------------------------------------------------
 
 ~s::
 if (scriptOn = "True")
@@ -670,9 +746,11 @@ return
 
 SetSliderLength(length)
 {
+global decimalMode
 global scriptOn
 global currentSV
 global snapCounter
+global delay1
 if (scriptOn = "True")
 {
 ; Calculations
@@ -688,16 +766,19 @@ Sleep 1
 }
 snapCounter := 0
 ; Set desired SV
-EnterF6()
-ClickTiming()
-GotoCustomSVField()
-ClearField()
-Sleep 1
-Send, %SV_string_comma%
-Sleep 1
-Send, {NumpadEnter}
-;DeleteLine()
-;GreenLine(SV_string_comma)
+DeleteLine()
+GreenLine(SV_string_comma)
+
+; Old backup code:
+;EnterF6()
+;ClickTiming()
+;GotoCustomSVField()
+;ClearField()
+;Sleep delay1
+;Send, %SV_string_comma%
+;Sleep delay1
+;Send, {NumpadEnter}
+
 }
 return
 }
@@ -707,6 +788,11 @@ return
 ~Tab & 3::SetSliderLength(3)
 ~Tab & 4::SetSliderLength(4)
 ~Tab & 5::SetSliderLength(1.5)
+
+
+; ---------------------------------------------------
+; COPYING SLIDERS WITH SV
+; ---------------------------------------------------
 
 ~+p:: ;~+c
 if (scriptOn = "True")
@@ -723,10 +809,10 @@ Send, {Right}
 Send, {Right}
 Send, {Right}
 Send, {Shift up}
-Sleep 10
+Sleep delay2
 ; We now have the SV highlighted - now copy it
 Send {Ctrl Down}c{Ctrl Up}
-Sleep 10
+Sleep delay2
 copiedSV := clipboard
 Send, {Esc}
 }
@@ -756,21 +842,21 @@ Send, {Right}
 Send, {Right}
 Send, {Right}
 Send, {Shift up}
-Sleep 10 ; We now have the SV highlighted
+Sleep delay2 ; We now have the SV highlighted
 Send {Ctrl Down}c{Ctrl Up} ; Save SV to clipboard
-Sleep 10
+Sleep delay2 
 copiedSV := clipboard ; Save SV to value
 Send, {Esc} ; Exit F6
-Sleep 100
+Sleep delayMedium
 ; Save object to clipboard
 Send {Ctrl down}
-Sleep 1
+Sleep delay1
 Send {c down}
-Sleep 1
+Sleep delay1
 Send {c up}
-Sleep 1
+Sleep delay1
 Send {Ctrl up}
-Sleep 1
+Sleep delay1
 }
 return
 
@@ -778,107 +864,110 @@ return
 if (scriptOn = "True")
 {
 Send {Ctrl down}
-Sleep 1
+Sleep delay1
 Send {v down}
-Sleep 1
+Sleep delay1
 Send {v up}
-Sleep 1
+Sleep delay1
 Send {Ctrl up}
-Sleep 10
+Sleep delay2
 GreenLine(copiedSV)
 }
 return
 
+; ---------------------------------------------------
+; REALLY EXPERIMENTAL STUFF
+; ---------------------------------------------------
 
 ^!k::
 if (scriptOn = "True")
 {
 MouseMove, 25, 10
-Sleep 100
+Sleep delayMedium
 Sendinput, {click}
-Sleep 1
+Sleep delay1
 MouseMove, 100, 100
 Sendinput, {click}
-Sleep 200
+Sleep delayLong
 Send, HT Test
-Sleep 1
+Sleep delay1
 Send, {NumpadEnter}
-Sleep 200
+Sleep delayLong
 Send, {Right}
-Sleep 1
+Sleep delay1
 Send, {NumpadEnter}
 Sleep 200
 MouseMove, 1012, 100
 Send, {Click down}
-Sleep 1
+Sleep delay1
 MouseMove, 324 ,1400
-Sleep 1
+Sleep delay1
 Sendinput, {Click Right}
-Sleep 1
+Sleep delay1
 Send, {Click up}
-Sleep 1
+Sleep delay1
 MouseMove, 1280, 720
 Sleep 500
 Send, {Click Right}
-Sleep 10
+Sleep delay2
 ; Save map
 Send {Ctrl down}
-Sleep 1
+Sleep delay1
 Send {s down}
-Sleep 1
+Sleep delay1
 Send {s up}
-Sleep 1
+Sleep delay1
 Send {Ctrl up}
-Sleep 1
+Sleep delay1
 ; Go back to main menu
 Send {Esc down}
-Sleep 1
+Sleep delay1
 Send {Esc up}
 Sleep 500
 Send {Esc down}
-Sleep 1
+Sleep delay1
 Send {Esc up}
 Sleep 400
 ; Go into solo
 MouseMove, 1280, 720
-Sleep 1
+Sleep delay1
 Sendinput, {click}
-Sleep 10
+Sleep delay2
 Sendinput, {click}
-Sleep 10
+Sleep delay2
 Sendinput, {click}
 Sleep 300
 ; Select HT mod
 Send, {F1 down}
-Sleep 1
+Sleep delay1
 Send, {F1 up}
 Sleep 50
 Send {E down}
-Sleep 1
+Sleep delay1
 Send {E up}
-Sleep 10
+Sleep delay2
 Send {2 down}
-Sleep 1
+Sleep delay1
 Send {2 up}
 Sleep 300
 ; Ensure we have right diff selected
 MouseMove, 2400, 90
-Sleep 1
+Sleep delay1
 Sendinput, {click}
 Sleep 100
 MouseMove, 2400, 430
-Sleep 1
+Sleep delay1
 Sendinput, {click}
 Sleep 500
 Send {Up down}
-Sleep 1
+Sleep delay1
 Send {Up up}
 Sleep 50
 ; Play
 MouseMove, 2400, 1300
-Sleep 1
+Sleep delay1
 Sendinput, {click}
-Sleep 1
+Sleep delay1
 SoundPlay, scriptOffSound.wav
 scriptOn := "False"
 }
