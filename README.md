@@ -14,7 +14,7 @@ You can look up how to make AutoHotKey scripts run on startup, so you don't have
 
 If you want to use any shortcuts that have to do with green lines, you need to do the following:
 
-Go to osu! options
+Go to osu! options, then keyboard bindings
 
 Under Editor set "Add inheriting Section" to A
 
