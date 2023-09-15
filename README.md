@@ -77,3 +77,5 @@ You can also create more shortcuts pretty easily by looking at how these hotkeys
 There's more hotkeys available, including experimental ones. If you want, you can try to decipher the script to find out what they are. 
 
 If the script doesn't work, try to increase the delay variables under the Setup section. This makes the script wait longer between each action. The number is in milliseconds.
+
+NOTE: Whenever you make changes to the script, you need to save the script AND reload it. To reload it, click the upwards arrow (show hidden icons) near the bottom-left corner of your Windows bar, then right-click the script icon and click Reload This Script 
