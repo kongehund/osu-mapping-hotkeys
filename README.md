@@ -1,8 +1,10 @@
 # osu-mapping-hotkeys
 An AutoHotKey tool to make osu!mapping easier.
-This script provides some hotkeys to use in the osu! editor. Some or all of these may become obsolete when people switch over to the lazer editor.
+This script provides some hotkeys to use in the osu! editor. 
 
-WARNING: The script may be extremely unstable and/or buggy. It is not tested on any other system than my own.
+Some or all of these may become obsolete when people switch over to the lazer editor.
+
+WARNING: The script may be unstable and/or buggy.
 
 # Installation
 To install and use this script, install AutoHotKey and download the files into a folder of your choosing. Then run the .ahk file.
