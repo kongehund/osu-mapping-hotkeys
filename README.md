@@ -64,7 +64,7 @@ Now, scroll to the slider tail and choose your slider length with this hotkey:
 
 TAB+(1/2/3/4/5) - Make it (1/2/3/4/1.5) grid ticks long
 
-(Tip: If none of the options work for your slider, consider changing the grid size. 
+(Tip: If none of the options are the length you want for your slider, consider changing the grid size. 
 You can also create more shortcuts pretty easily by looking at how these hotkeys were made and add your own)
 
 # Debugging and More:
