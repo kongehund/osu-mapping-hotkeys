@@ -35,6 +35,8 @@ D/F - Rotate 5°
 
 C/V - Rotate 1°
 
+# Mute Slider Ends:
+
 B / N / Shift+N - Different ways to add a 5% volume green line on current position (B is recommended, but won't work on 1/12 and 1/16)
 
 # Easy Slider Design:
