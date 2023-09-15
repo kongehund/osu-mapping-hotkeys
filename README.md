@@ -22,6 +22,8 @@ Set "Remove Section" to M
 
 If you don't like A and M to do this, you'll have to find two other keys that aren't conflicting with anything else and edit this script accordingly.
 
+Also, you need to ensure the decimalMode variable is set correctly in the script's Setup section. Read the comments in the script to set it properly.
+
 # Toggling the Script:
 
 Press CTRL+ALT+. or CTRL+ALT+MOUSE5 to enable/disable the script - you should hear a sound when the script turns on and off.
@@ -73,5 +75,3 @@ You can also create more shortcuts pretty easily by looking at how these hotkeys
 There's more hotkeys available, including experimental ones. If you want, you can try to decipher the script to find out what they are. 
 
 If the script doesn't work, try to increase the delay variables under the Setup section. This makes the script wait longer between each action. The number is in milliseconds.
-
-Also, make sure the decimalMode variable is set correctly. Read the comments in the script to set it properly.
