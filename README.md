@@ -46,17 +46,9 @@ SHIFT+A or SHIFT+S - Add a gren line with 0.1 or 0.4 SV. SHIFT+A is recommended 
 
 Now, design a slider. Once you've designed the slider, go to the slider head and press S. This will tell the script that your timeline cursor is on top of the slider head. 
 
-Now, scroll to the slider tail. You now have the following hotkey options to set the length of the slider you've designed:
+Now, scroll to the slider tail and choose your slider length with this hotkey:
 
-TAB+1 - Make it 1 grid tick long
-
-TAB+2 - Make it 2 grid ticks long
-
-TAB+3 - Make it 3 grid ticks long
-
-TAB+4 - Make it 4 grid ticks long
-
-TAB+5 - Make it 1.5 grid ticks long
+TAB+(1/2/3/4/5) - Make it (1/2/3/4/1.5) grid ticks long
 
 (Tip: If none of the options work for your slider, consider changing the grid size. 
 You can also create more shortcuts pretty easily by looking at how these hotkeys were made and add your own)
