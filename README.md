@@ -37,9 +37,13 @@ C/V - Rotate 1°
 
 # Mute Slider Ends:
 
-B / N / Shift+N - Different ways to add a 5% volume green line on current position (B is recommended, but may be buggy on 1/12 and 1/16)
+B - Add 5% volume green line on current position AND a normal green line on next half grid tick in order not to mess up the following sliders. Recommended, but may be buggy on 1/12 and 1/16.
 
-# Copy a Slider Including it's SV:
+N - Add 5% volume green line on current position AND a normal green line on next full grid tick in order not to mess up the following sliders. Recommended if there's no objects after this one.
+
+Shift+N - Add only a 5% volume green line on current position. This will also silence following objects unless they already have green lines to control their volume.
+
+# Copy a Slider Including its SV:
 
 SHIFT+C - When you have a slider selected, press this to copy both the slider and the SV
 
