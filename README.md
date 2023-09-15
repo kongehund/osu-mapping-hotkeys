@@ -20,10 +20,12 @@ Set "Remove Section" to M
 
 If you don't like A and M to do this, you'll have to find two other keys that aren't conflicting with anything else and edit this script accordingly.
 
-# Hotkey guide:
+# Toggling the Script:
 
 Press CTRL+ALT+. or CTRL+ALT+MOUSE5 to enable/disable the script - you should hear a sound when the script turns on and off.
 The script normally disables automatically when you leave the editor in any way (i.e. pressing Esc, Win, Alt+Tab, F5, F8, F9)
+
+# Rotation Hotkeys:
 
 MOUSE4/MOUSE5 - Rotate 90° from selection center (whereas the default osu shortcuts rotate from Playfield center)
 
@@ -35,21 +37,33 @@ C/V - Rotate 1°
 
 B / N / Shift+N - Different ways to add a 5% volume green line on current position (B is recommended, but won't work on 1/12 and 1/16)
 
-SHIFT+A (fine) and SHIFT+S (coarse) - Add a special green line that allows you to design a slider without worrying about SV. 
-Then, once you've designed the slider, go to the slider head and press S. This will tell the script that your timeline cursor is on top of the slider head. 
-Now, scroll to the slider tail.
-You now have the following hotkey options to set the length of the slider you've designed:
+# Easy Slider Design:
+
+This feature allows you to first design a slider, then set it's length.
+Useful for tech mapping.
+
+SHIFT+A or SHIFT+S - Add a gren line with 0.1 or 0.4 SV. SHIFT+A is recommended in general, whereas SHIFT+S is good for longer sliders so you don't have to scroll as much in the upcoming part.
+
+Now, design a slider. Once you've designed the slider, go to the slider head and press S. This will tell the script that your timeline cursor is on top of the slider head. 
+
+Now, scroll to the slider tail. You now have the following hotkey options to set the length of the slider you've designed:
+
 TAB+1 - Make it 1 grid tick long
+
 TAB+2 - Make it 2 grid ticks long
+
 TAB+3 - Make it 3 grid ticks long
+
 TAB+4 - Make it 4 grid ticks long
+
 TAB+5 - Make it 1.5 grid ticks long
+
 (Tip: If none of the options work for your slider, consider changing the grid size. 
 You can also create more shortcuts pretty easily by looking at how these hotkeys were made and add your own)
 
+# Debugging and More:
 There's more hotkeys available, including experimental ones. If you want, you can try to decipher the script to find out what they are. 
 
-# DEBUGGING:
 If the script doesn't work, try to increase the delay variables under the Setup section. This makes the script wait longer between each action. The number is in milliseconds.
 
 Also, make sure the decimalMode variable is set correctly. Read the comments in the script to set it properly.
