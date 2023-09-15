@@ -35,12 +35,21 @@ C/V - Rotate 1°
 
 B / N / Shift+N - Different ways to add a 5% volume green line on current position (B is recommended, but won't work on 1/12 and 1/16)
 
-A - Add a green line where you can immediately type the SV
+SHIFT+A (fine) and SHIFT+S (coarse) - Add a special green line that allows you to design a slider without worrying about SV. 
+Then, once you've designed the slider, go to the slider head and press S. This will tell the script that your timeline cursor is on top of the slider head. 
+Now, scroll to the slider tail.
+You now have the following hotkey options to set the length of the slider you've designed:
+TAB+1 - Make it 1 grid tick long
+TAB+2 - Make it 2 grid ticks long
+TAB+3 - Make it 3 grid ticks long
+TAB+4 - Make it 4 grid ticks long
+TAB+5 - Make it 1.5 grid ticks long
+(Tip: If none of the options work for your slider, consider changing the grid size. 
+You can also create more shortcuts pretty easily by looking at how these hotkeys were made and add your own)
 
 There's more hotkeys available, including experimental ones. If you want, you can try to decipher the script to find out what they are. 
-(A fun experimental one is Ctrl+Alt+k, which will attempt to play the current position with half-time by creating a new difficulty. Doesn't always select the correct diff tho.)
 
 # DEBUGGING:
-If the script doesn't work, try to increase the number after "Sleep" commands. This makes the script wait longer between each action. The number is in milliseconds.
+If the script doesn't work, try to increase the delay variables under the Setup section. This makes the script wait longer between each action. The number is in milliseconds.
 
-(There may be a lot of numbers to change. If I wasn't lazy, I'd turn it into variables you could edit at the top of the script, but meh)
+Also, make sure the decimalMode variable is set correctly. Read the comments in the script to set it properly.
