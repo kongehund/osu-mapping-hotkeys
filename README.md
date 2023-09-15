@@ -26,6 +26,8 @@ Also, you need to ensure the decimalMode variable is set correctly in the script
 
 # Toggling the Script:
 
+The script starts out disabled.
+
 Press CTRL+ALT+. or CTRL+ALT+MOUSE5 to enable/disable the script - you should hear a sound when the script turns on and off.
 The script normally disables automatically when you leave the editor in any way (i.e. pressing Esc, Win, Alt+Tab, F5, F8, F9)
 
