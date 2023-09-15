@@ -57,7 +57,7 @@ You can also use these just to copy a green line without copying a slider. These
 
 # Easy Slider Design:
 
-This feature allows you to first design a slider, then set its length.
+This feature allows you to first design a slider, then set its timeline length.
 Useful for tech mapping.
 
 SHIFT+A or SHIFT+S - Add a gren line with 0.1 or 0.4 SV. SHIFT+A is recommended in general, whereas SHIFT+S is good for longer sliders so you don't have to scroll as much in the upcoming part.
