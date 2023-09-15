@@ -1,6 +1,6 @@
 # osu-mapping-hotkeys
-An AutoHotKey tool to make osu!mapping easier.
-This script provides some hotkeys to use in the osu! editor. 
+An AutoHotKey tool to make osu!mapping faster.
+This script provides some hotkeys to use in the osu! editor, such as instant rotation, copying sliders including SV, and faster slider design. 
 
 Some or all of these may become obsolete when people switch over to the lazer editor.
 
