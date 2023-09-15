@@ -37,7 +37,15 @@ C/V - Rotate 1°
 
 # Mute Slider Ends:
 
-B / N / Shift+N - Different ways to add a 5% volume green line on current position (B is recommended, but won't work on 1/12 and 1/16)
+B / N / Shift+N - Different ways to add a 5% volume green line on current position (B is recommended, but may be buggy on 1/12 and 1/16)
+
+# Copy a Slider Including it's SV:
+
+SHIFT+C - When you have a slider selected, press this to copy both the slider and the SV
+
+SHIFT+V - Paste the slider and add a green line on this position to include the SV
+
+You can also use these just to copy a green line without copying a slider. These won't work for multiple green lines at once.
 
 # Easy Slider Design:
 
