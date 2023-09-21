@@ -64,11 +64,11 @@ Useful for tech mapping.
 
 Go to where you want the slider to start and make sure there's no green line here.
 
-To enter Easy Slider Design mode, press TAB+1 (fine) or TAB+2 (coarse) 
+To enter Easy Slider Design mode, press ALT+1 (fine) or SHIFT+ALT+1 (coarse) 
 
-Now, design a slider. The slider must start on the new green line that was just created. Once you've designed the slider, go to the slider tail and press TAB+3.
+Now, design a slider. The slider must start on the new green line that was just created. Once you've designed the slider, go to the slider tail and press ALT+2.
 
-Now, scroll to where you want the slider to end and press TAB+4.
+Now, scroll to where you want the slider to end and press ALT+3.
 
 Pretty neat, yeah?
 
