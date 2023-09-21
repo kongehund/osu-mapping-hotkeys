@@ -62,9 +62,11 @@ You can also use these just to copy a green line without copying a slider. These
 This feature allows you to first design a slider, then set its timeline length.
 Useful for tech mapping.
 
-TAB+1 or TAB+2 - Add a gren line with 0.1 or 0.4 SV. TAB+1 is recommended, unless your slider is long or you're on 1/8 or finer - if so, use TAB+2 so you don't need to scroll as much in the upcoming section.
+Go to where you want the slider to start and make sure there's no green line here.
 
-Now, design a slider. Once you've designed the slider, go to the slider tail and press TAB+3.
+To enter Easy Slider Design mode, press TAB+1 (fine) or TAB+2 (coarse) 
+
+Now, design a slider. The slider must start on the new green line that was just created. Once you've designed the slider, go to the slider tail and press TAB+3.
 
 Now, scroll to where you want the slider to end and press TAB+4.
 
