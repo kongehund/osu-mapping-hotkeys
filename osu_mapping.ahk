@@ -744,7 +744,7 @@ value := clipboard
 return value
 }
 
-~Tab & 1::
+~!1::
 if (scriptOn = "True")
 {
 currentSV := 0.1
@@ -754,7 +754,7 @@ sliderStartTime := osuTimeToMs(getOsuTime())
 }
 return
 
-~Tab & 2::
+~+!1::
 if (scriptOn = "True")
 {
 currentSV := 0.4
@@ -764,7 +764,7 @@ sliderStartTime := osuTimeToMs(getOsuTime())
 }
 return
 
-~Tab & 3::
+~!2::
 if (scriptOn = "True")
 {
 OsuTimeTest := getOsuTime()
@@ -778,7 +778,7 @@ Send {Enter}
 }
 return
 
-~Tab & 4::
+~!3::
 if (scriptOn = "True")
 {
 ; Time Calculations
