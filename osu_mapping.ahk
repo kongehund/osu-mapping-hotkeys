@@ -7,6 +7,7 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+#MaxHotkeysPerInterval 150
 
 ; ---------------------------------------------------
 ; SETUP
@@ -42,6 +43,7 @@ delay1 := 1		; Default 1
 delay2 := 10		; Default 10
 delayMedium := 100	; Default 100
 delayLong := 200	; Default 200
+delayVeryLong := 300	; Default 250
 
 
 
@@ -457,6 +459,7 @@ global scriptOn
 global decimalMode
 global delay1
 global delay2
+
 if (scriptOn = "True")
 {
 AddCustomSV()
@@ -716,78 +719,103 @@ return
 ; CUSTOM-LENGTH SLIDERS
 ; ---------------------------------------------------
 
-~s::
-if (scriptOn = "True")
-{
-snapCounter := 0
+; Turn min:sec:ms into ms (i.e. 1:01:250 into 61250)
+osuTimeToMs(osuTime)
+{	
+StringSplit, components, osuTime, :	
+totalMilliseconds := (components1 * 60 * 1000) + (components2 * 1000) + components3
+return totalMilliseconds
 }
-return
 
-~+a::
+; Get current osu time
+getOsuTime()
+{
+MouseMove, 40, 1400
+Send {Click}
+Sleep delayVeryLong
+Send {Ctrl Down}c{Ctrl Up}
+Sleep delay1
+MouseMove, 40, 1300
+Send {Click}
+Sleep 1
+Send {Click}
+value := clipboard
+;Sleep 1000
+return value
+}
+
+~Tab & 1::
 if (scriptOn = "True")
 {
 currentSV := 0.1
 GreenLine("0,1")
-snapCounter := 0
+Sleep delayVeryLong ; Give osu time to leave F6
+sliderStartTime := osuTimeToMs(getOsuTime())
 }
 return
 
-~+s::
+~Tab & 2::
 if (scriptOn = "True")
 {
 currentSV := 0.4
 GreenLine("0,4")
-snapCounter := 0
+Sleep delayVeryLong ; Give osu time to leave F6
+sliderStartTime := osuTimeToMs(getOsuTime())
 }
 return
 
-~WheelDown::snapCounter++
-~WheelUp::snapCounter--
-
-SetSliderLength(length)
-{
-global decimalMode
-global scriptOn
-global currentSV
-global snapCounter
-global delay1
+~Tab & 3::
 if (scriptOn = "True")
 {
-; Calculations
-multiplier := snapCounter / length
+OsuTimeTest := getOsuTime()
+sliderEndTimeBefore := osuTimeToMs(OsuTimeTest)
+; Go back to beginning of slider
+MouseMove, 40, 1400
+Send {Click}
+Sleep delayLong
+Send %sliderStartTime%
+Send {Enter}
+}
+return
+
+~Tab & 4::
+if (scriptOn = "True")
+{
+; Time Calculations
+sliderEndTimeAfter := osuTimeToMs(getOsuTime())
+sliderDurationBefore := sliderEndTimeBefore - sliderStartTime
+sliderDurationAfter := sliderEndTimeAfter - sliderStartTime
+
+;MsgBox sliderEndTimeBefore %sliderEndTimeBefore% , sliderEndTimeAfter %sliderEndTimeAfter%, sliderStartTime %sliderStartTime%,  
+
+;Sleep 4000
+
+;MsgBox Duration before and after: %sliderDurationBefore%, %sliderDurationAfter%
+
+
+; SV Calculations
+multiplier := sliderDurationBefore / sliderDurationAfter
 SV := currentSV * multiplier
 SV_string_dot := "" SV
 StringReplace, SV_string_comma, SV_string_dot, ., `,
-; Go back to slider start
-Loop, %snapCounter% ; Go back to slider head
-{
-Send, {WheelUp}
-Sleep 1
-}
-snapCounter := 0
+
+; Go to slider start
+MouseMove, 40, 1400
+Send {Click}
+Sleep delayLong
+Send %sliderStartTime%
+Sleep delay1
+Send {Enter}
+Sleep delayMedium
+
 ; Set desired SV
+;MsgBox Final SV: %SV_string_comma%
 DeleteLine()
 GreenLine(SV_string_comma)
-
-; Old backup code:
-;EnterF6()
-;ClickTiming()
-;GotoCustomSVField()
-;ClearField()
-;Sleep delay1
-;Send, %SV_string_comma%
-;Sleep delay1
-;Send, {NumpadEnter}
-
 }
 return
-}
 
-~Tab & 1::SetSliderLength(1)
-~Tab & 2::SetSliderLength(2)
-~Tab & 3::SetSliderLength(3)
-~Tab & 4::SetSliderLength(4)
-~Tab & 5::SetSliderLength(1.5)
+
 
 
 ; ---------------------------------------------------
@@ -874,6 +902,12 @@ Sleep delay2
 GreenLine(copiedSV)
 }
 return
+
+
+
+
+
+
 
 ; ---------------------------------------------------
 ; REALLY EXPERIMENTAL STUFF
