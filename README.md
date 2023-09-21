@@ -62,16 +62,13 @@ You can also use these just to copy a green line without copying a slider. These
 This feature allows you to first design a slider, then set its timeline length.
 Useful for tech mapping.
 
-SHIFT+A or SHIFT+S - Add a gren line with 0.1 or 0.4 SV. SHIFT+A is recommended in general, whereas SHIFT+S is good for longer sliders so you don't have to scroll as much in the upcoming part.
+TAB+1 or TAB+2 - Add a gren line with 0.1 or 0.4 SV. TAB+1 is recommended, unless your slider is long or you're on 1/8 or finer - if so, use TAB+2 so you don't need to scroll as much in the upcoming section.
 
-Now, design a slider. Once you've designed the slider, go to the slider head and press S. This will tell the script that your timeline cursor is on top of the slider head. 
+Now, design a slider. Once you've designed the slider, go to the slider tail and press TAB+3.
 
-Now, scroll to the slider tail and choose your slider length with this hotkey:
+Now, scroll to where you want the slider to end and press TAB+4.
 
-TAB+(1/2/3/4/5) - Make it (1/2/3/4/1.5) grid ticks long
-
-(Tip: If none of the options are the length you want for your slider, consider changing the grid size. 
-You can also create more shortcuts pretty easily by looking at how these hotkeys were made and add your own)
+Pretty neat, yeah?
 
 # Debugging and More:
 There's more hotkeys available, including experimental ones. If you want, you can try to decipher the script to find out what they are. 
